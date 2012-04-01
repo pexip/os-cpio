@@ -1,0 +1,22 @@
+Author: Steve McIntyre <steve.mcintyre@linaro.org>
+Description: fix cross-building support
+ The lstat and stat definitions in src/filetypes.h are incompatible with the
+ definitions already available on Linux, causing a build failure when
+ cross-building.
+Bug-Debian: http://bugs.debian.org/627444
+
+Index: trunk/src/filetypes.h
+===================================================================
+--- trunk.orig/src/filetypes.h
++++ trunk/src/filetypes.h
+@@ -83,6 +83,10 @@
+ #endif
+ 
+ #ifndef __WIN32__
++#ifndef lstat
+ int lstat ();
++#endif
++#ifndef stat
+ int stat ();
+ #endif
++#endif
