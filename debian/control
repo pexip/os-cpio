@@ -1,14 +1,16 @@
 Source: cpio
 Section: utils
 Priority: important
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Ruben Molina <rmolina@udea.edu.co>
-Uploaders: Anibal Monsalve Salazar <anibal@debian.org>
+XSBC-Pexip-Original-Uploaders: Anibal Monsalve Salazar <anibal@debian.org>
 Build-Depends: texinfo, gettext:any
 Standards-Version: 3.9.1
 Homepage: http://www.gnu.org/software/cpio/
 Vcs-Git: git://git.debian.org/git/private/schizo/cpio
 Vcs-Browser: http://git.debian.org/?p=private/schizo/cpio/.git
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: cpio
 Architecture: any
