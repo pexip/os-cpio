@@ -1,3 +1,13 @@
+cpio (2.11-7ubuntu3.1) precise-security; urgency=medium
+
+  * SECURITY UPDATE: out of bounds write and other range issues
+    - debian/patches/cpio-CVE-2014-9112.patch
+    - debian/patches/cpio-CVE-2014-9112-testsuite.patch: regenerate
+      testsuite to incorporate tests from previous patch
+    - CVE-2014-9112
+
+ -- Steve Beattie <sbeattie@ubuntu.com>  Wed, 07 Jan 2015 11:36:30 -0800
+
 cpio (2.11-7ubuntu3) precise; urgency=low
 
   * debian/patches/627444-cross-compiling.patch: fix cross-building

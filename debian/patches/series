@@ -6,3 +6,5 @@ fix.win32.out-pass.mode.579533.patch
 218086-reporting-bugs.patch
 588020-manpages-see-also.patch
 627444-cross-compiling.patch
+cpio-CVE-2014-9112.patch
+cpio-CVE-2014-9112-testsuite.patch
