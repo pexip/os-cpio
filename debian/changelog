@@ -1,3 +1,19 @@
+cpio (2.11-7ubuntu3.1pexip1) pexip; urgency=low
+
+  * New upstream release.
+
+ -- John-Mark Bell <jmb@pexip.com>  Mon, 02 Feb 2015 18:25:41 +0000
+
+cpio (2.11-7ubuntu3.1) precise-security; urgency=medium
+
+  * SECURITY UPDATE: out of bounds write and other range issues
+    - debian/patches/cpio-CVE-2014-9112.patch
+    - debian/patches/cpio-CVE-2014-9112-testsuite.patch: regenerate
+      testsuite to incorporate tests from previous patch
+    - CVE-2014-9112
+
+ -- Steve Beattie <sbeattie@ubuntu.com>  Wed, 07 Jan 2015 11:36:30 -0800
+
 cpio (2.11-7ubuntu3pexip1) pexip; urgency=low
 
   * Prepare Pexip packaging
