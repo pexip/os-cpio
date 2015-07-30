@@ -3,6 +3,9 @@ cpio (2.11-7ubuntu3.1pexip2) pexip; urgency=low
   * debian/patches/cpio-CVE-2014-9112.patch,
     debian/patches/cpio-CVE-2014-9112-testsuite.patch: fix up
     expected output in symlink-bad-length test.
+  * SECURITY UPDATE: symlink traversal issues
+    - debian/patches/CVE-2015-1197.patch
+    - CVE-2015-1197
 
  -- John-Mark Bell <jmb@pexip.com>  Thu, 30 Jul 2015 23:17:09 +0000
 
