@@ -1,3 +1,11 @@
+cpio (2.11-7ubuntu3.1pexip2) pexip; urgency=low
+
+  * debian/patches/cpio-CVE-2014-9112.patch,
+    debian/patches/cpio-CVE-2014-9112-testsuite.patch: fix up
+    expected output in symlink-bad-length test.
+
+ -- John-Mark Bell <jmb@pexip.com>  Thu, 30 Jul 2015 23:17:09 +0000
+
 cpio (2.11-7ubuntu3.1pexip1) pexip; urgency=low
 
   * New upstream release.
