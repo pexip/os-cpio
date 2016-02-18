@@ -1,3 +1,18 @@
+cpio (2.11-7ubuntu3.2) precise-security; urgency=medium
+
+  * SECURITY UPDATE: file overwrite via symlink attack
+    - debian/patches/CVE-2015-1197.patch: don't write files over symlinks
+      unless --extract-over-symlinks is used in doc/cpio.1, src/copyin.c,
+      src/extern.h, src/global.c, src/main.c.
+    - CVE-2015-1197
+  * SECURITY UPDATE: out-of-bounds write
+    - debian/patches/CVE-2016-2037.patch: make sure there is at least two
+      bytes available in src/copyin.c, added comment to src/util.c.
+    - CVE-2016-2037
+  * debian/patches/fix-symlink-test.patch: fix date-sensitive test.
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 18 Feb 2016 09:19:26 -0500
+
 cpio (2.11-7ubuntu3.1) precise-security; urgency=medium
 
   * SECURITY UPDATE: out of bounds write and other range issues
