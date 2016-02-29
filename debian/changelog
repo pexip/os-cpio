@@ -2,6 +2,10 @@ cpio (2.11-7ubuntu3.2pexip1) pexip; urgency=low
 
   * New upstream release.
   * debian/patches/CVE-2015-1197.patch: sync with upstream
+  * debian/patches/cpio-CVE-2014-9112.patch,
+    debian/patches/cpio-CVE-2014-9112-testsuite.patch: revert
+    local changes as upstream have fixed the FTBFS by introducing
+    debian/patches/fix-symlink-test.patch.
 
  -- John-Mark Bell <jmb@pexip.com>  Mon, 29 Feb 2016 17:46:24 +0000
 
