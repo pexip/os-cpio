@@ -9,3 +9,5 @@ fix.win32.out-pass.mode.579533.patch
 cpio-CVE-2014-9112.patch
 cpio-CVE-2014-9112-testsuite.patch
 CVE-2015-1197.patch
+CVE-2016-2037.patch
+fix-symlink-test.patch
