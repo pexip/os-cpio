@@ -4,8 +4,10 @@ Origin: vendor
 Bugs: http://bugs.debian.org/579533 http://bugs.debian.org/464172
 Last-Update: 2010-04-29 
 
---- cpio-2.11.orig/gnu/fcntl.in.h
-+++ cpio-2.11/gnu/fcntl.in.h
+Index: cpio-2.11+dfsg/gnu/fcntl.in.h
+===================================================================
+--- cpio-2.11+dfsg.orig/gnu/fcntl.in.h
++++ cpio-2.11+dfsg/gnu/fcntl.in.h
 @@ -234,7 +234,10 @@ _GL_WARN_ON_USE (openat, "openat is not
  # undef O_TEXT
  #endif
@@ -18,8 +20,10 @@ Last-Update: 2010-04-29
  # define O_BINARY 0
  # define O_TEXT 0
  #endif
---- cpio-2.11.orig/lib/system.h
-+++ cpio-2.11/lib/system.h
+Index: cpio-2.11+dfsg/lib/system.h
+===================================================================
+--- cpio-2.11+dfsg.orig/lib/system.h
++++ cpio-2.11+dfsg/lib/system.h
 @@ -109,9 +109,6 @@ extern int errno;
  # define O_TRUNC	32	/* truncate file on open */
  #endif
@@ -44,4 +48,3 @@ Last-Update: 2010-04-29
  # define ERRNO_IS_EACCES 0
  # define TTY_NAME "/dev/tty"
  # define sys_reset_uid_gid() \
-

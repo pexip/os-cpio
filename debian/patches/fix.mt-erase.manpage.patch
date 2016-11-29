@@ -1,0 +1,20 @@
+Description: Identify how to perform "fast erase" operations on devices that
+ support it.
+Bug: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=770198
+Author: Kees Cook <kees@debian.org>
+
+Index: cpio-2.11+dfsg/doc/mt.1
+===================================================================
+--- cpio-2.11+dfsg.orig/doc/mt.1
++++ cpio-2.11+dfsg/doc/mt.1
+@@ -92,7 +92,9 @@ Print status information about the tape
+ Rewind the tape, then wind it to the end of the reel,
+ then rewind it again.
+ .IP erase
+-Erase the tape.
++Perform long erase of tape. If
++.I count
++is 0, perform short erase of tape (some devices do not support this).
+ .PP
+ .B mt
+ exits with a status of 0 if the operation succeeded, 1 if the

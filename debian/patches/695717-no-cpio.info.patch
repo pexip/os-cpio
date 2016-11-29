@@ -6,9 +6,11 @@ Updated-By: Anibal Monsalve Salazar
 Last-Update: 2013-06-01
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- a/doc/Makefile.in
-+++ b/doc/Makefile.in
-@@ -149,7 +149,6 @@
+Index: cpio-2.11+dfsg/doc/Makefile.in
+===================================================================
+--- cpio-2.11+dfsg.orig/doc/Makefile.in
++++ cpio-2.11+dfsg/doc/Makefile.in
+@@ -149,7 +149,6 @@ am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERB
  am__v_at_0 = @
  SOURCES =
  DIST_SOURCES =
@@ -16,8 +18,10 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  TEXINFO_TEX = $(top_srcdir)/build-aux/texinfo.tex
  am__TEXINFO_TEX_DIR = $(top_srcdir)/build-aux
  DVIS = cpio.dvi
---- a/doc/cpio.1	2013-06-01 08:35:26.000000000 +1000
-+++ b/doc/cpio.1	2013-06-01 08:37:06.000000000 +1000
+Index: cpio-2.11+dfsg/doc/cpio.1
+===================================================================
+--- cpio-2.11+dfsg.orig/doc/cpio.1
++++ cpio-2.11+dfsg/doc/cpio.1
 @@ -40,11 +40,6 @@ General help using GNU software: <http:/
  Report cpio translation bugs to <http://translationproject.org/team/>
  .SH SEE ALSO

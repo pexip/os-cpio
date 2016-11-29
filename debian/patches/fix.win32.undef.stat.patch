@@ -5,9 +5,11 @@ MinGW-w64 redefines the stat structure, and the rpl_ redefinitions in
 sys/stat.h here play havoc with that. In any case rpl_stat isn't
 defined...
 
---- a/gnu/sys_stat.in.h
-+++ b/gnu/sys_stat.in.h
-@@ -574,19 +574,6 @@
+Index: cpio-2.11+dfsg/gnu/sys_stat.in.h
+===================================================================
+--- cpio-2.11+dfsg.orig/gnu/sys_stat.in.h
++++ cpio-2.11+dfsg/gnu/sys_stat.in.h
+@@ -574,19 +574,6 @@ _GL_WARN_ON_USE (mknodat, "mknodat is no
  
  #if @GNULIB_STAT@
  # if @REPLACE_STAT@

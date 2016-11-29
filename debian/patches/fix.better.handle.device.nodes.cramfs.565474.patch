@@ -1,8 +1,10 @@
 Description: Better handle device nodes from cramfs.
 Author: Carl Miller <chaz@energoncube.net> 
 
---- cpio-2.11.orig/src/copyout.c
-+++ cpio-2.11/src/copyout.c
+Index: cpio-2.11+dfsg/src/copyout.c
+===================================================================
+--- cpio-2.11+dfsg.orig/src/copyout.c
++++ cpio-2.11+dfsg/src/copyout.c
 @@ -232,7 +232,8 @@ writeout_defered_file (struct cpio_file_
  			   header->c_name);
    warn_if_file_changed(header->c_name, file_hdr.c_filesize, file_hdr.c_mtime);
@@ -51,4 +53,3 @@ Author: Carl Miller <chaz@energoncube.net>
  		{
  		  char *otherfile;
  		  if ((otherfile = find_inode_file (file_hdr.c_ino,
-
