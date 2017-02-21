@@ -1,87 +1,111 @@
-cpio (2.11-7ubuntu3.2pexip1) pexip; urgency=low
+cpio (2.11+dfsg-4.1+deb8u1pexip1) pexip; urgency=low
 
-  * New upstream release.
-  * debian/patches/CVE-2015-1197.patch: sync with upstream
-  * debian/patches/cpio-CVE-2014-9112.patch,
-    debian/patches/cpio-CVE-2014-9112-testsuite.patch: revert
-    local changes as upstream have fixed the FTBFS by introducing
-    debian/patches/fix-symlink-test.patch.
+  * Migrate to Jessie
 
- -- John-Mark Bell <jmb@pexip.com>  Mon, 29 Feb 2016 17:46:24 +0000
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 21 Feb 2017 12:59:32 +0000
 
-cpio (2.11-7ubuntu3.2) precise-security; urgency=medium
+cpio (2.11+dfsg-4.1+deb8u1) jessie-security; urgency=high
 
-  * SECURITY UPDATE: file overwrite via symlink attack
-    - debian/patches/CVE-2015-1197.patch: don't write files over symlinks
-      unless --extract-over-symlinks is used in doc/cpio.1, src/copyin.c,
-      src/extern.h, src/global.c, src/main.c.
-    - CVE-2015-1197
-  * SECURITY UPDATE: out-of-bounds write
-    - debian/patches/CVE-2016-2037.patch: make sure there is at least two
-      bytes available in src/copyin.c, added comment to src/util.c.
-    - CVE-2016-2037
-  * debian/patches/fix-symlink-test.patch: fix date-sensitive test.
+  * Non-maintainer upload by the Security Team.
+  * CVE-2016-2037: 1-byte out-of-bounds write (Closes: #812401)
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Thu, 18 Feb 2016 09:19:26 -0500
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 14 Feb 2016 13:42:19 +0100
 
-cpio (2.11-7ubuntu3.1pexip2) pexip; urgency=low
+cpio (2.11+dfsg-4.1) unstable; urgency=medium
 
-  * debian/patches/cpio-CVE-2014-9112.patch,
-    debian/patches/cpio-CVE-2014-9112-testsuite.patch: fix up
-    expected output in symlink-bad-length test.
-  * SECURITY UPDATE: symlink traversal issues
-    - debian/patches/CVE-2015-1197.patch
-    - CVE-2015-1197
+  * Apply patch by Vitezslav Cizek of SuSE to fix CVE-2015-1197.
+    Upstream is dormant or no longer existing. To restore the old
+    behaviour use --extract-over-symlinks (Closes: #774669)
+    This issue has been discovered by Alexander Cherepanov.
 
- -- John-Mark Bell <jmb@pexip.com>  Thu, 30 Jul 2015 23:17:09 +0000
+ -- Moritz Muehlenhoff <jmm@debian.org>  Thu, 05 Mar 2015 11:44:25 +0100
 
-cpio (2.11-7ubuntu3.1pexip1) pexip; urgency=low
+cpio (2.11+dfsg-4) unstable; urgency=high
 
-  * New upstream release.
+  [ Michael Gilbert <mgilbert@debian.org> ]
+  * Fix CVE-2014-9112: null pointer dereference issues.
+    Add the following upstream patches:
+    fd262d11.patch
+    f6a8a2cb.patch
+    Closes: #772793.
 
- -- John-Mark Bell <jmb@pexip.com>  Mon, 02 Feb 2015 18:25:41 +0000
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Mon, 22 Dec 2014 11:42:11 +0000
 
-cpio (2.11-7ubuntu3.1) precise-security; urgency=medium
+cpio (2.11+dfsg-3) experimental; urgency=medium
 
-  * SECURITY UPDATE: out of bounds write and other range issues
-    - debian/patches/cpio-CVE-2014-9112.patch
-    - debian/patches/cpio-CVE-2014-9112-testsuite.patch: regenerate
-      testsuite to incorporate tests from previous patch
-    - CVE-2014-9112
+  * Use default compression source options
+  * Fix CVE-2014-9112: out of bounds write and insufficient range checking.
+    Add the following upstream patches:
+    746f3ff6.patch
+    54d1c42a.patch
+    58df4f1b.patch
+    Closes: #772793.
 
- -- Steve Beattie <sbeattie@ubuntu.com>  Wed, 07 Jan 2015 11:36:30 -0800
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Fri, 12 Dec 2014 10:41:11 +0000
 
-cpio (2.11-7ubuntu3pexip1) pexip; urgency=low
+cpio (2.11+dfsg-2) unstable; urgency=medium
 
-  * Prepare Pexip packaging
+  [ Stephen Kitt ]
+  * Build using mingw-w64 instead of mingw32. Closes: #623402.
+  * Clean up autom4te.cache and config.guess/config.sub to allow building
+    twice in a row.
 
- -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 14:02:32 +0000
+  [ Anibal Monsalve Salazar ]
+  * Standards Version is 3.9.5
+  * Commented out Vcs-Git and Vcs-Browser in debian/control
 
-cpio (2.11-7ubuntu3) precise; urgency=low
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Thu, 27 Mar 2014 01:49:54 +0000
 
-  * debian/patches/627444-cross-compiling.patch: fix cross-building
-    support.  Thanks to Steve McIntyre <steve.mcintyre@linaro.org>.
-    Closes: #627444.
-  * debian/rules: use the host-arch strip when cross-compiling, so we don't
-    have to rely on support in binutils-multiarch.
+cpio (2.11+dfsg-1) unstable; urgency=low
 
- -- Steve Langasek <steve.langasek@ubuntu.com>  Sun, 01 Apr 2012 18:07:27 +0000
+  * Standards Version is 3.9.4
+  * Remove reference to texinfo documntation in cpio man page
+    Update debian/patches/695717-no-cpio.info.patch
+    Closes: #695717
+  * Build depends on autotools-dev 
+    Autoconf update for arm64 building
+    Drop debian/patches/autoconfupdate.patch
+    Closes: #689612
+  * Update debian/watch
 
-cpio (2.11-7ubuntu2) precise; urgency=low
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Sat, 01 Jun 2013 08:54:41 +1000
 
-  * Build-depend on gettext:any instead of on gettext, so that apt-get can
-    properly resolve build-dependencies on the tool when cross-building.
+cpio (2.11+dfsg-0.2) unstable; urgency=low
 
- -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 30 Mar 2012 17:16:41 +0000
+  * Non-maintainer upload.
+  * Make cpio build with glibc 2.16 and newer, closes: #701389, #693440
+  * Make cpio multiarch ready before the bug gets one year old: closes: #678385 
+  * remove dependency on install-info/dpkg since info file was dropped in
+    #695717
+  * Update config.guess and config.sub for aarch64 bootstrapping
 
-cpio (2.11-7ubuntu1) natty; urgency=low
+ -- Riku Voipio <riku.voipio@linaro.org>  Thu, 23 May 2013 09:46:11 +0300
 
-  * Merge from debian unstable (LP: #723742). Remaining changes:
-    - debian/control: Don't build a cpio-win32 package since mingw32
-      is in universe.
-    - debian/rules: Don't depend on the binary-indep target in binary.
+cpio (2.11+dfsg-0.1) unstable; urgency=low
 
- -- Bhavani Shankar <bhavi@ubuntu.com>  Wed, 23 Feb 2011 18:10:47 +0100
+  * Non-maintainer upload.
+  * Remove non DFSG-compliant doc/cpio.info and doc/cpio.texi from source.
+    Closes: #695717
+  * Do not build nor ship cpio.info because of the above.
+
+ -- David Prévot <taffit@debian.org>  Sat, 29 Dec 2012 22:02:30 -0400
+
+cpio (2.11-8) unstable; urgency=low
+
+  * Enable hardened build flags
+    Patch by Moritz Muehlenhoff
+    Closes: #654522
+  * Cross-building issues 
+    - Fix invalid redefinition of stat() during cross-building cpio
+      Patch by Steve McIntyre
+      Add 627444-invalid-redefinition-of-stat.patch
+    - Use the strip that's provided by the cross-binutils
+      Patch by Steve Langasek
+    Closes: #627444
+  * Standards version is 3.9.3
+  * Fix debian-rules-missing-recommended-target
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Tue, 12 Jun 2012 20:55:53 +1000
 
 cpio (2.11-7) unstable; urgency=low
 
@@ -92,19 +116,10 @@ cpio (2.11-7) unstable; urgency=low
 
  -- Ruben Molina <rmolina@udea.edu.co>  Thu, 10 Feb 2011 23:16:52 -0500
 
-cpio (2.11-6ubuntu1) natty; urgency=low
-
-  * Merge from debian unstable.  Remaining changes: (LP: #704421)
-    - debian/control: Don't build a cpio-win32 package since mingw32
-      is in universe.
-    - debian/rules: Don't depend on the binary-indep target in binary.
-
- -- Artur Rona <ari-tczew@ubuntu.com>  Tue, 18 Jan 2011 12:22:07 +0100
-
 cpio (2.11-6) unstable; urgency=low
 
   * New mantainer: adopt the package.
-    closes: 604790
+    closes: #604790
   * debian/copyright: change link to GPL3 file
   * debian/control: add homepage field
   * Fix manpages section
@@ -112,30 +127,12 @@ cpio (2.11-6) unstable; urgency=low
 
  -- Monica Ramirez Arceda <monica@probeta.net>  Thu, 02 Dec 2010 07:43:11 +0100
 
-cpio (2.11-5ubuntu1) natty; urgency=low
-
-  * Merge from debian unstable.  Remaining changes:
-    - debian/control: Don't build a cpio-win32 package
-    - debian/rules: don't depend on the binary-indep target in binary.
-
- -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 18 Nov 2010 09:38:49 +0100
-
 cpio (2.11-5) unstable; urgency=low
 
   * Bump to Standards-Version 3.9.1.
   * Orphan the package.
 
  -- Clint Adams <clint@gnu.org>  Sun, 14 Nov 2010 00:50:05 -0500
-
-cpio (2.11-4ubuntu1) maverick; urgency=low
-
-  * Merge from Debian unstable, remaining changes:
-    - debian/control: Don't build a cpio-win32 package
-    - debian/rules: don't depend on the binary-indep target in binary.
-  * New upstream version fixes bug where directory permissions are dropped
-    in passthrough mode.  LP: #214942.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 15 Jun 2010 22:25:50 -0700
 
 cpio (2.11-4) unstable; urgency=low
 
@@ -183,35 +180,12 @@ cpio (2.10-2) unstable; urgency=low
 
  -- Clint Adams <schizo@debian.org>  Mon, 18 Jan 2010 21:30:39 -0500
 
-cpio (2.10-1ubuntu2) lucid; urgency=low
-
-  * rebuild rest of main for armel armv7/thumb2 optimization;
-    UbuntuSpec:mobile-lucid-arm-gcc-v7-thumb2
-
- -- Alexander Sack <asac@ubuntu.com>  Fri, 05 Mar 2010 04:06:20 +0100
-
-cpio (2.10-1ubuntu1) karmic; urgency=low
-
-  * Merge from debian unstable, remaining changes: LP: #390912
-    -  debian/control: Don't build a cpio-win32 package (LP 229877).
-    - debian/rules: don't depend on the binary-indep target in binary.
-
- -- Bhavani Shankar <right2bhavi@gmail.com>  Tue, 23 Jun 2009 05:42:23 +0530
-
 cpio (2.10-1) unstable; urgency=low
 
   * New upstream version.
   * Bump to Standards-Version 3.8.2.
 
  -- Clint Adams <schizo@debian.org>  Sat, 20 Jun 2009 11:53:36 -0400
-
-cpio (2.9.90-3ubuntu1) karmic; urgency=low
-
-  * Merge from debian unstable, remaining changes:
-    - debian/control: Don't build a cpio-win32 package (LP 229877).
-    - debian/rules: don't depend on the binary-indep target in binary.
-
- -- Muharem Hrnjadovic <muharem@canonical.com>  Mon, 04 May 2009 15:03:42 +0200
 
 cpio (2.9.90-3) unstable; urgency=low
 
@@ -226,30 +200,12 @@ cpio (2.9.90-2) unstable; urgency=low
 
  -- Clint Adams <schizo@debian.org>  Tue, 24 Feb 2009 13:12:16 -0500
 
-cpio (2.9-15ubuntu1) jaunty; urgency=low
-
-  * Merge from debian unstable, remaining changes:
-    - debian/control: Don't build a cpio-win32 package (LP 229877).
-    - debian/rules: don't depend on the binary-indep target in binary.
-
- -- Kees Cook <kees@ubuntu.com>  Sun, 15 Feb 2009 09:00:31 -0800
-
 cpio (2.9-15) unstable; urgency=medium
 
   * Apply patch from Kees Cook to return proper exit codes.  closes:
     #514936.
 
  -- Clint Adams <schizo@debian.org>  Sat, 14 Feb 2009 13:55:42 -0500
-
-cpio (2.9-14ubuntu1) jaunty; urgency=low
-
-  * Merge from debian unstable, remaining changes:
-    - Don't build a cpio-win32 package (LP: #229877)
-      - debian/control: Remove mingw32 from Build-Depends-Indep and the
-      cpio-win32 stanza
-      - debian/rules: don't depend on the binary-indep target in binary
-
- -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 10 Nov 2008 12:52:38 +0100
 
 cpio (2.9-14) unstable; urgency=low
 
@@ -265,27 +221,6 @@ cpio (2.9-14) unstable; urgency=low
   * Bump to Standards-Version 3.8.0.
 
  -- Clint Adams <schizo@debian.org>  Fri, 26 Sep 2008 16:58:29 -0400
-
-cpio (2.9-13ubuntu2) intrepid; urgency=low
-
-  * Make sure that HAVE_GETPWNAM, HAVE_GETGRNAM, HAVE_GETPWUID and
-    HAVE_GETGRGID are defined so that the real functions are used, rather
-    than dummy ones. Having HAVE_GETPWNAM defined makes --owner work with
-    user and group names again. (LP: #273259)
-    - Also switch lib/system.h to use HAVE_GETPWUID instead of HAVE_PWUID.
-
- -- James Westby <james.westby@canonical.com>  Thu, 25 Sep 2008 20:47:23 +0100
-
-cpio (2.9-13ubuntu1) intrepid; urgency=low
-
-  * Don't build a cpio-win32 package (LP: #229877):
-    * debian/control: Remove mingw32 from Build-Depends-Indep and the
-      cpio-win32 stanza
-    * debian/rules: don't depend on the binary-indep target in binary
-  * debian/control:
-    * Modify Maintainer value to match DebianMaintainerField spec.
-
- -- Michael Bienia <geser@ubuntu.com>  Tue, 13 May 2008 11:50:19 +0200
 
 cpio (2.9-13) unstable; urgency=low
 
@@ -846,4 +781,3 @@ cpio (2.4.2-7) unstable; urgency=low
   * First release with the new source format.
 
  -- Brian Mays <brian@debian.org>  Fri, 23 Aug 1996 23:27:40 -0400
-
