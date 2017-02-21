@@ -10,7 +10,7 @@ Standards-Version: 3.9.1
 Homepage: http://www.gnu.org/software/cpio/
 Vcs-Git: git://git.debian.org/git/private/schizo/cpio
 Vcs-Browser: http://git.debian.org/?p=private/schizo/cpio/.git
-XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
 
 Package: cpio
 Architecture: any
