@@ -1,15 +1,19 @@
 Description: fix other bugs
 
---- cpio-2.11.orig/po/Makefile.in.in
-+++ cpio-2.11/po/Makefile.in.in
+Index: cpio-2.11+dfsg/po/Makefile.in.in
+===================================================================
+--- cpio-2.11+dfsg.orig/po/Makefile.in.in
++++ cpio-2.11+dfsg/po/Makefile.in.in
 @@ -1,5 +1,3 @@
 -# -*- buffer-read-only: t -*- vi: set ro:
 -# DO NOT EDIT! GENERATED AUTOMATICALLY!
  # Makefile for PO directory in any package using GNU gettext.
  # Copyright (C) 1995-1997, 2000-2007 by Ulrich Drepper <drepper@gnu.ai.mit.edu>
  #
---- cpio-2.11.orig/lib/sysdep.h
-+++ cpio-2.11/lib/sysdep.h
+Index: cpio-2.11+dfsg/lib/sysdep.h
+===================================================================
+--- cpio-2.11+dfsg.orig/lib/sysdep.h
++++ cpio-2.11+dfsg/lib/sysdep.h
 @@ -20,6 +20,8 @@
     You should have received a copy of the GNU General Public License
     along with GNU cpiio.  If not, see <http://www.gnu.org/licenses/>. */
@@ -25,8 +29,10 @@ Description: fix other bugs
  
 -
 +#endif
---- cpio-2.11.orig/lib/rtapelib.c
-+++ cpio-2.11/lib/rtapelib.c
+Index: cpio-2.11+dfsg/lib/rtapelib.c
+===================================================================
+--- cpio-2.11+dfsg.orig/lib/rtapelib.c
++++ cpio-2.11+dfsg/lib/rtapelib.c
 @@ -425,7 +425,9 @@ rmt_open__ (const char *file_name, int o
    }
  
@@ -37,8 +43,10 @@ Description: fix other bugs
      error (EXIT_ON_EXEC_ERROR, 0, _("Cannot connect to %s: resolve failed"),
  	   remote_host);
  	  
---- cpio-2.11.orig/lib/sysdep.c
-+++ cpio-2.11/lib/sysdep.c
+Index: cpio-2.11+dfsg/lib/sysdep.c
+===================================================================
+--- cpio-2.11+dfsg.orig/lib/sysdep.c
++++ cpio-2.11+dfsg/lib/sysdep.c
 @@ -187,4 +187,12 @@ chown ( const char *filename __attribute
    return -1;
  }
@@ -53,9 +61,10 @@ Description: fix other bugs
 +  return -1;
 +}
 +#endif
-
---- cpio-2.11.orig/src/filetypes.h
-+++ cpio-2.11/src/filetypes.h
+Index: cpio-2.11+dfsg/src/filetypes.h
+===================================================================
+--- cpio-2.11+dfsg.orig/src/filetypes.h
++++ cpio-2.11+dfsg/src/filetypes.h
 @@ -81,5 +81,8 @@
  #ifndef S_ISLNK
  #define lstat stat
@@ -65,9 +74,10 @@ Description: fix other bugs
  int lstat ();
  int stat ();
 +#endif
-
---- cpio-2.11.orig/src/main.c
-+++ cpio-2.11/src/main.c
+Index: cpio-2.11+dfsg/src/main.c
+===================================================================
+--- cpio-2.11+dfsg.orig/src/main.c
++++ cpio-2.11+dfsg/src/main.c
 @@ -734,6 +734,8 @@ main (int argc, char *argv[])
    
    initialize_buffers ();
@@ -77,4 +87,3 @@ Description: fix other bugs
    (*copy_function) ();
  
    if (archive_des >= 0 && rmtclose (archive_des) == -1)
-

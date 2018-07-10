@@ -1,8 +1,8 @@
-Index: cpio-2.11/doc/cpio.1
+Index: cpio-2.11+dfsg/doc/cpio.1
 ===================================================================
---- cpio-2.11.orig/doc/cpio.1	2011-02-10 23:23:33.034676077 -0500
-+++ cpio-2.11/doc/cpio.1	2011-02-10 23:23:35.467665462 -0500
-@@ -38,6 +38,8 @@
+--- cpio-2.11+dfsg.orig/doc/cpio.1
++++ cpio-2.11+dfsg/doc/cpio.1
+@@ -38,6 +38,8 @@ GNU cpio home page: <http://www.gnu.org/
  General help using GNU software: <http://www.gnu.org/gethelp/>
  .PP
  Report cpio translation bugs to <http://translationproject.org/team/>

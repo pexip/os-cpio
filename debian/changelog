@@ -1,15 +1,41 @@
+cpio (2.11+dfsg-6) unstable; urgency=medium
+
+  * Man page for "mt" describes how to "fast erase"
+    Patch by Kees Cook
+    Add fix.mt-erase.manpage.patch
+    Closes: #770198
+  * Backport "New options to create device and inode-independent
+    archives." from cpio 2.12
+    Patch by Chris Lamb
+    Add reproducible.patch
+    See #804063
+  * Standards-Version: 3.9.8
+  * Refresh patches
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Tue, 29 Nov 2016 12:31:53 +0000
+
+cpio (2.11+dfsg-5) unstable; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * CVE-2016-2037: 1-byte out-of-bounds write (Closes: #812401)
+
+  [ Jérémy Bobbio ]
+  * Make the package build reproducibly:
+    - Fix mtimes before building binary packages.
+    - Stop recording the current time when creating gzip files.
+    - Sort file list in md5sums.
+    Closes: #774426
+
+  [ Anibal Monsalve Salazar ]
+  * Standards-Version: 3.9.6
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Sun, 14 Feb 2016 12:01:51 +0000
+
 cpio (2.11+dfsg-4.1+deb8u1pexip1) pexip; urgency=low
 
   * Migrate to Jessie
 
  -- John-Mark Bell <jmb@pexip.com>  Tue, 21 Feb 2017 12:59:32 +0000
-
-cpio (2.11+dfsg-4.1+deb8u1) jessie-security; urgency=high
-
-  * Non-maintainer upload by the Security Team.
-  * CVE-2016-2037: 1-byte out-of-bounds write (Closes: #812401)
-
- -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 14 Feb 2016 13:42:19 +0100
 
 cpio (2.11+dfsg-4.1) unstable; urgency=medium
 
