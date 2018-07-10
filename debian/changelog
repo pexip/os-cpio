@@ -1,3 +1,9 @@
+cpio (2.11+dfsg-6pexip1) pexip; urgency=medium
+
+  * Migrate to Stretch
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 00:19:39 +0000
+
 cpio (2.11+dfsg-6) unstable; urgency=medium
 
   * Man page for "mt" describes how to "fast erase"
