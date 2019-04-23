@@ -1,13 +1,11 @@
-Index: cpio-2.11+dfsg/doc/cpio.1
-===================================================================
---- cpio-2.11+dfsg.orig/doc/cpio.1
-+++ cpio-2.11+dfsg/doc/cpio.1
-@@ -38,6 +38,8 @@ GNU cpio home page: <http://www.gnu.org/
+--- pkg-cpio.orig/doc/cpio.1
++++ pkg-cpio/doc/cpio.1
+@@ -97,6 +97,8 @@ GNU cpio home page: <http://www.gnu.org/
  General help using GNU software: <http://www.gnu.org/gethelp/>
  .PP
  Report cpio translation bugs to <http://translationproject.org/team/>
 +.SH SEE ALSO
 +cpio(5)
  .SH DESCRIPTION
- GNU cpio is fully documented in the texinfo documentation. To access the
- help from your command line, type
+ GNU \fBcpio\fR copies files between archives and directories.  It
+ supports the following archive formats: old binary cpio, old portable

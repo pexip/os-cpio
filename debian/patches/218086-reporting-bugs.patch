@@ -1,11 +1,9 @@
-Index: cpio-2.11+dfsg/doc/cpio.1
-===================================================================
---- cpio-2.11+dfsg.orig/doc/cpio.1
-+++ cpio-2.11+dfsg/doc/cpio.1
-@@ -30,6 +30,14 @@ cpio \- copy files to and from archives
- [\-\-preserve-modification-time] [\-\-unconditional] [\-\-verbose] [\-\-dot]
- [\-\-dereference] [\-\-owner=[user][:.][group]] [\-\-no-preserve-owner]
- [\-\-sparse] [\-\-help] [\-\-version] destination-directory < name-list
+--- pkg-cpio.orig/doc/cpio.1
++++ pkg-cpio/doc/cpio.1
+@@ -89,6 +89,14 @@ or find it in various formats online at
+ If any discrepancies occur between this manpage and the
+ \fBGNU Cpio Manual\fR, the later shall be considered the authoritative
+ source.
 +.SH REPORTING BUGS
 +Report cpio bugs to bug-cpio@gnu.org
 +.PP
@@ -15,16 +13,12 @@ Index: cpio-2.11+dfsg/doc/cpio.1
 +.PP
 +Report cpio translation bugs to <http://translationproject.org/team/>
  .SH DESCRIPTION
- GNU cpio is fully documented in the texinfo documentation. To access the
- help from your command line, type
-Index: cpio-2.11+dfsg/doc/mt.1
-===================================================================
---- cpio-2.11+dfsg.orig/doc/mt.1
-+++ cpio-2.11+dfsg/doc/mt.1
-@@ -124,3 +124,12 @@ or
- .I "\-V, \-\-version"
- Print the version number of
- .BR mt .
+ GNU \fBcpio\fR copies files between archives and directories.  It
+ supports the following archive formats: old binary cpio, old portable
+@@ -122,6 +130,14 @@ Print a short usage message and exit.
+ .TP
+ .B \-\-version
+ Print program version and exit.
 +.SH REPORTING BUGS
 +Report cpio bugs to bug-cpio@gnu.org
 +.PP
@@ -33,4 +27,6 @@ Index: cpio-2.11+dfsg/doc/mt.1
 +General help using GNU software: <http://www.gnu.org/gethelp/>
 +.PP
 +Report cpio translation bugs to <http://translationproject.org/team/>
-+
+ .SH OPTIONS
+ .SS Operation modifiers valid in any mode
+ .TP

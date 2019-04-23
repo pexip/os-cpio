@@ -4,11 +4,9 @@ Origin: vendor
 Bugs: http://bugs.debian.org/579533 http://bugs.debian.org/464172
 Last-Update: 2010-04-29 
 
-Index: cpio-2.11+dfsg/gnu/fcntl.in.h
-===================================================================
---- cpio-2.11+dfsg.orig/gnu/fcntl.in.h
-+++ cpio-2.11+dfsg/gnu/fcntl.in.h
-@@ -234,7 +234,10 @@ _GL_WARN_ON_USE (openat, "openat is not
+--- pkg-cpio.orig/gnu/fcntl.in.h
++++ pkg-cpio/gnu/fcntl.in.h
+@@ -316,7 +316,10 @@ _GL_WARN_ON_USE (openat, "openat is not
  # undef O_TEXT
  #endif
  
@@ -20,10 +18,8 @@ Index: cpio-2.11+dfsg/gnu/fcntl.in.h
  # define O_BINARY 0
  # define O_TEXT 0
  #endif
-Index: cpio-2.11+dfsg/lib/system.h
-===================================================================
---- cpio-2.11+dfsg.orig/lib/system.h
-+++ cpio-2.11+dfsg/lib/system.h
+--- pkg-cpio.orig/lib/system.h
++++ pkg-cpio/lib/system.h
 @@ -109,9 +109,6 @@ extern int errno;
  # define O_TRUNC	32	/* truncate file on open */
  #endif
@@ -34,7 +30,7 @@ Index: cpio-2.11+dfsg/lib/system.h
  #ifndef O_DIRECTORY
  # define O_DIRECTORY 0
  #endif
-@@ -462,13 +459,11 @@ char *getenv ();
+@@ -469,13 +466,11 @@ char *getenv ();
  
  #if MSDOS
  # include <process.h>
@@ -47,4 +43,4 @@ Index: cpio-2.11+dfsg/lib/system.h
 -# define SET_BINARY_MODE(arc)
  # define ERRNO_IS_EACCES 0
  # define TTY_NAME "/dev/tty"
- # define sys_reset_uid_gid() \
+ # define sys_reset_uid_gid()					\

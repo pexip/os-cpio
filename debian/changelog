@@ -1,3 +1,76 @@
+cpio (2.12+dfsg-9) unstable; urgency=medium
+
+  * Reinstate the call to update-alternatives(1) that I didnt see in the prerm
+    script. Thanks again to Ivo De Decker. (Closes: #926698)
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 23 Apr 2019 16:29:37 +0100
+
+cpio (2.12+dfsg-8) unstable; urgency=medium
+
+  * Drop symlink removal - it's been gone since 2001 anyway. Thanks, Ivo De
+    Decker. (Closes: #926698)
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 23 Apr 2019 13:15:20 +0100
+
+cpio (2.12+dfsg-7) unstable; urgency=medium
+
+  * Don't remove /usr/sbin/rmt in a merged-usr environment in the prerm script.
+    Thanks to Andreas Beckmann and Niels Thykier. (Closes: #926698)
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 23 Apr 2019 12:45:09 +0100
+
+cpio (2.12+dfsg-6) unstable; urgency=medium
+
+  * Upload to unstable.
+    - Update debian/gbp.conf.
+  * Remove empty directories under usr/share/man.
+  * debian/control: "Priority: extra" has been replaced with "Priority:
+    optional".
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 02 Dec 2017 09:27:39 +0000
+
+cpio (2.12+dfsg-5) experimental; urgency=medium
+
+  * debian/rules:
+    - Don't set dpkg-architecture variables with "=".
+    - Don't parse the output of dpkg-parsechangelog.
+  * Bump Standards-Version to 4.1.1.
+  * Use HTTPS URI in debian/watch.
+  * Drop whitespace from end of changelog.
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 28 Nov 2017 19:45:14 +0900
+
+cpio (2.12+dfsg-4) experimental; urgency=medium
+
+  * Add missing autoconf to Build-Depends (Closes: #855572)
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 10 Mar 2017 10:57:56 +0000
+
+cpio (2.12+dfsg-3) experimental; urgency=medium
+
+  * Remove rmt.8.gz. (Closes: #854584)
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 11 Feb 2017 22:55:11 +1300
+
+cpio (2.12+dfsg-2) experimental; urgency=medium
+
+  * Add missing autoconf to Build-Depends.
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 03 Jan 2017 10:32:27 +0000
+
+cpio (2.12+dfsg-1) experimental; urgency=medium
+
+  * Add myself to Uploaders.
+  * Add debian/gbp.conf.
+  * New upstream release. (Closes: #804063)
+    - Refresh patches.
+  * Add autoreconf.patch for automake-1.15.
+  * Add fix.win32-compat.patch.
+  * Pass --enable-mt to ./configure instead setting CPIO_MT_PROG=mt environment
+    variable.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 01 Jan 2017 11:17:41 +0000
+
 cpio (2.11+dfsg-6) unstable; urgency=medium
 
   * Man page for "mt" describes how to "fast erase"
@@ -82,7 +155,7 @@ cpio (2.11+dfsg-1) unstable; urgency=low
   * Remove reference to texinfo documntation in cpio man page
     Update debian/patches/695717-no-cpio.info.patch
     Closes: #695717
-  * Build depends on autotools-dev 
+  * Build depends on autotools-dev
     Autoconf update for arm64 building
     Drop debian/patches/autoconfupdate.patch
     Closes: #689612
@@ -94,7 +167,7 @@ cpio (2.11+dfsg-0.2) unstable; urgency=low
 
   * Non-maintainer upload.
   * Make cpio build with glibc 2.16 and newer, closes: #701389, #693440
-  * Make cpio multiarch ready before the bug gets one year old: closes: #678385 
+  * Make cpio multiarch ready before the bug gets one year old: closes: #678385
   * remove dependency on install-info/dpkg since info file was dropped in
     #695717
   * Update config.guess and config.sub for aarch64 bootstrapping
@@ -115,7 +188,7 @@ cpio (2.11-8) unstable; urgency=low
   * Enable hardened build flags
     Patch by Moritz Muehlenhoff
     Closes: #654522
-  * Cross-building issues 
+  * Cross-building issues
     - Fix invalid redefinition of stat() during cross-building cpio
       Patch by Steve McIntyre
       Add 627444-invalid-redefinition-of-stat.patch
