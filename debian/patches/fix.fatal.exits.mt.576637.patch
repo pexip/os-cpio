@@ -1,10 +1,8 @@
 Description: Return MT_EXIT_FAILURE instead of MT_EXIT_INVOP for fatal exits from mt.
 
-Index: cpio-2.11+dfsg/src/Makefile.am
-===================================================================
---- cpio-2.11+dfsg.orig/src/Makefile.am
-+++ cpio-2.11+dfsg/src/Makefile.am
-@@ -38,6 +38,8 @@ cpio_SOURCES = \
+--- pkg-cpio.orig/src/Makefile.am
++++ pkg-cpio/src/Makefile.am
+@@ -42,6 +42,8 @@ cpio_SOURCES = \
   makepath.c\
   userspec.c
  
@@ -13,10 +11,8 @@ Index: cpio-2.11+dfsg/src/Makefile.am
  noinst_HEADERS =\
   cpio.h\
   cpiohdr.h\
-Index: cpio-2.11+dfsg/src/mt.c
-===================================================================
---- cpio-2.11+dfsg.orig/src/mt.c
-+++ cpio-2.11+dfsg/src/mt.c
+--- pkg-cpio.orig/src/mt.c
++++ pkg-cpio/src/mt.c
 @@ -55,6 +55,8 @@
  
     David MacKenzie <djm@gnu.ai.mit.edu> */
@@ -26,12 +22,3 @@ Index: cpio-2.11+dfsg/src/mt.c
  #include <system.h>
  
  #include <stdio.h>
-@@ -308,7 +310,7 @@ print_status (char *dev, int desc)
- void
- fatal_exit ()
- {
--  exit (MT_EXIT_INVOP);
-+  exit (MT_EXIT_FAILURE);
- }
- 
- int

@@ -6,31 +6,46 @@ Updated-By: Anibal Monsalve Salazar
 Last-Update: 2013-06-01
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
-Index: cpio-2.11+dfsg/doc/Makefile.in
-===================================================================
---- cpio-2.11+dfsg.orig/doc/Makefile.in
-+++ cpio-2.11+dfsg/doc/Makefile.in
-@@ -149,7 +149,6 @@ am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERB
- am__v_at_0 = @
- SOURCES =
- DIST_SOURCES =
+--- pkg-cpio.orig/doc/Makefile.in
++++ pkg-cpio/doc/Makefile.in
+@@ -243,7 +243,6 @@ AM_V_texidevnull = $(am__v_texidevnull_@
+ am__v_texidevnull_ = $(am__v_texidevnull_@AM_DEFAULT_V@)
+ am__v_texidevnull_0 = > /dev/null
+ am__v_texidevnull_1 = 
 -INFO_DEPS = $(srcdir)/cpio.info
  TEXINFO_TEX = $(top_srcdir)/build-aux/texinfo.tex
  am__TEXINFO_TEX_DIR = $(top_srcdir)/build-aux
  DVIS = cpio.dvi
-Index: cpio-2.11+dfsg/doc/cpio.1
-===================================================================
---- cpio-2.11+dfsg.orig/doc/cpio.1
-+++ cpio-2.11+dfsg/doc/cpio.1
-@@ -40,11 +40,6 @@ General help using GNU software: <http:/
- Report cpio translation bugs to <http://translationproject.org/team/>
- .SH SEE ALSO
- cpio(5)
--.SH DESCRIPTION
--GNU cpio is fully documented in the texinfo documentation. To access the
--help from your command line, type
+--- pkg-cpio.orig/doc/cpio.1
++++ pkg-cpio/doc/cpio.1
+@@ -65,30 +65,6 @@ cpio \- copy files to and from archives
+ 
+ .B cpio
+ {\fB\-?\fR|\fB\-\-help\fR|\fB\-\-usage\fR|\fB\-\-version\fR}
+-.SH NOTE
+-This manpage is a short description of GNU \fBcpio\fR.  For a detailed
+-discussion, including examples and usage recommendations, refer to the
+-\fBGNU Cpio Manual\fR available in texinfo format.  If the \fBinfo\fR
+-reader and the cpio documentation are properly installed on your
+-system, the command
 -.PP
--\fBinfo cpio
- .PP
- The online copy of the documentation is available at the following address:
+-.RS +4
+-.B info cpio
+-.RE
+-.PP
+-should give you access to the complete manual.
+-.PP
+-You can also view the manual using the info mode in
+-.BR emacs (1),
+-or find it in various formats online at
+-.PP
+-.RS +4
+-.B http://www.gnu.org/software/cpio/manual
+-.RE
+-.PP
+-If any discrepancies occur between this manpage and the
+-\fBGNU Cpio Manual\fR, the later shall be considered the authoritative
+-source.
+ .SH REPORTING BUGS
+ Report cpio bugs to bug-cpio@gnu.org
  .PP

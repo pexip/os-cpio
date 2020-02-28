@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/pkg-info.mk
+
 package=cpio
 
 CFLAGS = -Wall -g
@@ -9,8 +11,8 @@ INSTALL_PROGRAM = $(INSTALL) -p    -o root -g root  -m  755
 INSTALL_SCRIPT  = $(INSTALL) -p    -o root -g root  -m  755
 INSTALL_DIR     = $(INSTALL) -p -d -o root -g root  -m  755
 
-DEB_HOST_GNU_TYPE=$(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE=$(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
 CROSS= --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
 STRIP = $(DEB_HOST_GNU_TYPE)-strip
@@ -18,8 +20,6 @@ else
 CROSS= --build $(DEB_BUILD_GNU_TYPE)
 STRIP = strip
 endif
-
-BUILD_DATE := $(shell dpkg-parsechangelog | sed -n -e 's/^Date: //p')
 
 ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 INSTALL_PROGRAM += -s
@@ -30,7 +30,7 @@ obj/Makefile:
 	-test -r /usr/share/misc/config.sub && cp -f /usr/share/misc/config.sub build-aux/config.sub
 	-test -r /usr/share/misc/config.guess && cp -f /usr/share/misc/config.guess build-aux/config.guess
 	mkdir -p obj
-	cd obj && CPIO_MT_PROG=mt ../configure $(shell dpkg-buildflags --export=configure) --prefix=/usr $(CROSS) \
+	cd obj && ../configure $(shell dpkg-buildflags --export=configure) --prefix=/usr --enable-mt $(CROSS) \
 	       --mandir=/usr/share/man \
 	       --infodir=/usr/share/info \
 	       --bindir=/bin \
@@ -115,6 +115,7 @@ binary-arch:	checkroot build
 # Install files
 	$(MAKE) -C obj install DESTDIR=$(CURDIR)/debian/tmp
 	rm -rf debian/tmp/usr/libexec
+	rm -rf debian/tmp/usr/share/man/man8/rmt.8
 	mv debian/tmp/bin/mt debian/tmp/bin/mt-gnu
 	mv debian/tmp/usr/share/man/man1/mt.1 \
 	  debian/tmp/usr/share/man/man1/mt-gnu.1
@@ -131,6 +132,7 @@ endif
 	  debian/tmp/usr/share/doc/$(package)/changelog.Debian
 	gzip -9nv debian/tmp/usr/share/doc/$(package)/*
 	gzip -9nv debian/tmp/usr/share/man/*/*
+	find debian/tmp/usr/share/man/ -type d -empty -delete
 	rm -rf debian/tmp/usr/share/info
 	install -m 644 debian/copyright debian/tmp/usr/share/doc/$(package)/.
 # Determine shared library dependencies
@@ -143,8 +145,8 @@ endif
 	dpkg-gencontrol -pcpio -Pdebian/tmp
 	chown -R root.root debian/tmp
 	chmod -R g-ws debian/tmp
-	find debian/tmp -depth -newermt '$(BUILD_DATE)' -print0 | \
-		xargs -0r touch --no-dereference --date='$(BUILD_DATE)'
+	find debian/tmp -depth -newermt '@$(SOURCE_DATE_EPOCH)' -print0 | \
+		xargs -0r touch --no-dereference --date='@$(SOURCE_DATE_EPOCH)'
 	dpkg-deb --build debian/tmp ..
 
 define checkdir

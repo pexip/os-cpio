@@ -1,0 +1,50 @@
+--- pkg-cpio.orig/lib/rtapelib.c
++++ pkg-cpio/lib/rtapelib.c
+@@ -34,6 +34,7 @@
+ 
+ #include "system.h"
+ #include "system-ioctl.h"
++#include "sysdep.h"
+ 
+ #include <safe-read.h>
+ #include <full-write.h>
+--- pkg-cpio.orig/src/copyin.c
++++ pkg-cpio/src/copyin.c
+@@ -31,6 +31,7 @@
+ #ifndef	FNM_PATHNAME
+ # include <fnmatch.h>
+ #endif
++#include "sysdep.h"
+ 
+ #ifndef HAVE_LCHOWN
+ # define lchown(f,u,g) 0
+--- pkg-cpio.orig/src/idcache.c
++++ pkg-cpio/src/idcache.c
+@@ -34,6 +34,7 @@
+ #endif
+ 
+ #include <unistd.h>
++#include "sysdep.h"
+ 
+ struct userid
+ {
+--- pkg-cpio.orig/src/makepath.c
++++ pkg-cpio/src/makepath.c
+@@ -33,6 +33,7 @@
+ #include "cpiohdr.h"
+ #include "dstring.h"
+ #include "extern.h"
++#include "sysdep.h"
+ 
+ /* Ensure that the directory ARGPATH exists.
+    Remove any trailing slashes from ARGPATH before calling this function.
+--- pkg-cpio.orig/src/userspec.c
++++ pkg-cpio/src/userspec.c
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <ctype.h>
+ #include <sys/types.h>
++#include "sysdep.h"
+ 
+ #ifndef HAVE_ENDPWENT
+ # define endpwent()

@@ -3,14 +3,12 @@ Description: Identify how to perform "fast erase" operations on devices that
 Bug: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=770198
 Author: Kees Cook <kees@debian.org>
 
-Index: cpio-2.11+dfsg/doc/mt.1
-===================================================================
---- cpio-2.11+dfsg.orig/doc/mt.1
-+++ cpio-2.11+dfsg/doc/mt.1
-@@ -92,7 +92,9 @@ Print status information about the tape
- Rewind the tape, then wind it to the end of the reel,
+--- pkg-cpio.orig/doc/mt.1
++++ pkg-cpio/doc/mt.1
+@@ -122,7 +122,9 @@ Rewind the tape, then wind it to the end
  then rewind it again.
- .IP erase
+ .TP 
+ .B erase
 -Erase the tape.
 +Perform long erase of tape. If
 +.I count

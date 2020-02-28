@@ -1,19 +1,7 @@
 Description: fix other bugs
 
-Index: cpio-2.11+dfsg/po/Makefile.in.in
-===================================================================
---- cpio-2.11+dfsg.orig/po/Makefile.in.in
-+++ cpio-2.11+dfsg/po/Makefile.in.in
-@@ -1,5 +1,3 @@
--# -*- buffer-read-only: t -*- vi: set ro:
--# DO NOT EDIT! GENERATED AUTOMATICALLY!
- # Makefile for PO directory in any package using GNU gettext.
- # Copyright (C) 1995-1997, 2000-2007 by Ulrich Drepper <drepper@gnu.ai.mit.edu>
- #
-Index: cpio-2.11+dfsg/lib/sysdep.h
-===================================================================
---- cpio-2.11+dfsg.orig/lib/sysdep.h
-+++ cpio-2.11+dfsg/lib/sysdep.h
+--- pkg-cpio.orig/lib/sysdep.h
++++ pkg-cpio/lib/sysdep.h
 @@ -20,6 +20,8 @@
     You should have received a copy of the GNU General Public License
     along with GNU cpiio.  If not, see <http://www.gnu.org/licenses/>. */
@@ -29,10 +17,8 @@ Index: cpio-2.11+dfsg/lib/sysdep.h
  
 -
 +#endif
-Index: cpio-2.11+dfsg/lib/rtapelib.c
-===================================================================
---- cpio-2.11+dfsg.orig/lib/rtapelib.c
-+++ cpio-2.11+dfsg/lib/rtapelib.c
+--- pkg-cpio.orig/lib/rtapelib.c
++++ pkg-cpio/lib/rtapelib.c
 @@ -425,7 +425,9 @@ rmt_open__ (const char *file_name, int o
    }
  
@@ -42,11 +28,9 @@ Index: cpio-2.11+dfsg/lib/rtapelib.c
 +#endif
      error (EXIT_ON_EXEC_ERROR, 0, _("Cannot connect to %s: resolve failed"),
  	   remote_host);
- 	  
-Index: cpio-2.11+dfsg/lib/sysdep.c
-===================================================================
---- cpio-2.11+dfsg.orig/lib/sysdep.c
-+++ cpio-2.11+dfsg/lib/sysdep.c
+ 
+--- pkg-cpio.orig/lib/sysdep.c
++++ pkg-cpio/lib/sysdep.c
 @@ -187,4 +187,12 @@ chown ( const char *filename __attribute
    return -1;
  }
@@ -61,24 +45,9 @@ Index: cpio-2.11+dfsg/lib/sysdep.c
 +  return -1;
 +}
 +#endif
-Index: cpio-2.11+dfsg/src/filetypes.h
-===================================================================
---- cpio-2.11+dfsg.orig/src/filetypes.h
-+++ cpio-2.11+dfsg/src/filetypes.h
-@@ -81,5 +81,8 @@
- #ifndef S_ISLNK
- #define lstat stat
- #endif
-+
-+#ifndef __WIN32__
- int lstat ();
- int stat ();
-+#endif
-Index: cpio-2.11+dfsg/src/main.c
-===================================================================
---- cpio-2.11+dfsg.orig/src/main.c
-+++ cpio-2.11+dfsg/src/main.c
-@@ -734,6 +734,8 @@ main (int argc, char *argv[])
+--- pkg-cpio.orig/src/main.c
++++ pkg-cpio/src/main.c
+@@ -785,6 +785,8 @@ main (int argc, char *argv[])
    
    initialize_buffers ();
  
