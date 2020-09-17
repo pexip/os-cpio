@@ -1,13 +1,19 @@
-Description: Prevent undefinition of stat
-Author: Stephen Kitt <skitt@debian.org>
+From: Stephen Kitt <skitt@debian.org>
+Date: Wed, 20 Nov 2019 13:08:40 -0500
+Subject: Prevent undefinition of stat
 
 MinGW-w64 redefines the stat structure, and the rpl_ redefinitions in
 sys/stat.h here play havoc with that. In any case rpl_stat isn't
 defined...
+---
+ gnu/sys_stat.in.h | 54 ------------------------------------------------------
+ 1 file changed, 54 deletions(-)
 
---- pkg-cpio.orig/gnu/sys_stat.in.h
-+++ pkg-cpio/gnu/sys_stat.in.h
-@@ -625,60 +625,6 @@ _GL_WARN_ON_USE (mknodat, "mknodat is no
+diff --git a/gnu/sys_stat.in.h b/gnu/sys_stat.in.h
+index d5ca343..3dc7de2 100644
+--- a/gnu/sys_stat.in.h
++++ b/gnu/sys_stat.in.h
+@@ -625,60 +625,6 @@ _GL_WARN_ON_USE (mknodat, "mknodat is not portable - "
  
  #if @GNULIB_STAT@
  # if @REPLACE_STAT@

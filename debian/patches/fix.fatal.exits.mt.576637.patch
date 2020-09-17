@@ -1,7 +1,17 @@
-Description: Return MT_EXIT_FAILURE instead of MT_EXIT_INVOP for fatal exits from mt.
+From: Anibal Monsalve Salazar <anibal@debian.org>
+Date: Wed, 20 Nov 2019 13:08:40 -0500
+Subject: Return MT_EXIT_FAILURE instead of MT_EXIT_INVOP for fatal exits from
+ mt.
 
---- pkg-cpio.orig/src/Makefile.am
-+++ pkg-cpio/src/Makefile.am
+---
+ src/Makefile.am | 2 ++
+ src/mt.c        | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index ab3fc1a..6430587 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
 @@ -42,6 +42,8 @@ cpio_SOURCES = \
   makepath.c\
   userspec.c
@@ -11,8 +21,10 @@ Description: Return MT_EXIT_FAILURE instead of MT_EXIT_INVOP for fatal exits fro
  noinst_HEADERS =\
   cpio.h\
   cpiohdr.h\
---- pkg-cpio.orig/src/mt.c
-+++ pkg-cpio/src/mt.c
+diff --git a/src/mt.c b/src/mt.c
+index 7022738..1cc23b1 100644
+--- a/src/mt.c
++++ b/src/mt.c
 @@ -55,6 +55,8 @@
  
     David MacKenzie <djm@gnu.ai.mit.edu> */
