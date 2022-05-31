@@ -6,10 +6,11 @@ XSBC-Pexip-Original-Maintainer: Anibal Monsalve Salazar <anibal@debian.org>
 XSBC-Pexip-Original-Uploaders: Ruben Molina <rmolina@udea.edu.co>, Chris Lamb <lamby@debian.org>
 Build-Depends: texinfo, gettext, autotools-dev, autoconf
 Build-Depends-Indep: mingw-w64
-Standards-Version: 4.1.1
-Homepage: http://www.gnu.org/software/cpio/
-#Vcs-Git: git://git.debian.org/git/private/schizo/cpio
-#Vcs-Browser: http://git.debian.org/?p=private/schizo/cpio/.git
+Standards-Version: 4.5.0
+Homepage: https://www.gnu.org/software/cpio/
+Vcs-Git: https://salsa.debian.org/lamby/pkg-cpio.git
+Vcs-Browser: https://salsa.debian.org/lamby/pkg-cpio
+Rules-Requires-Root: binary-targets
 XS-Pexip-Upstream: http://deb.debian.org/debian/ bullseye
 
 Package: cpio

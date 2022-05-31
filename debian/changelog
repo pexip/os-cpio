@@ -1,3 +1,47 @@
+cpio (2.13+dfsg-4) unstable; urgency=medium
+
+  * Source only upload to enable migration.
+    Closes: #969660 
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Thu, 17 Sep 2020 21:16:18 +1000
+
+cpio (2.13+dfsg-3) unstable; urgency=medium
+
+  * Fix FTBFS multiple definition of 'program_name'
+    src/global.c: Remove superfluous declaration of program_name 
+    Add patch 963304-remove-superfluous-declaration-of-program_name
+    Closes: #963304
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Tue, 07 Jul 2020 23:12:56 -0500
+
+cpio (2.13+dfsg-2) unstable; urgency=medium
+
+  * Fix a regression in handling of CVE-2015-1197 & --no-absolute-filenames by
+    reverting part of an upstream commit. (Closes: #946267, #946469)
+  * Add Vcs-Git and Vcs-Browser pointing to my personal Salsa repository (in
+    lieu of anything at all).
+  * Bump Standards-Version to 4.5.0.
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 01 Feb 2020 14:11:00 +0100
+
+cpio (2.13+dfsg-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: #946267)
+  * Autoreconf using version 1.16.1 and update autoreconf.patch.
+  * Update patches:
+    - Drop patch for CVE-2016-2037; applied upstream.
+    - Drop CVE-2015-1197.patch; now addressed upstream.
+    - Modify doc/Makefile.am (vs. doc/Makefile.in) prior to autoreconfing vs.
+      the generated doc/Makefile.in.
+    - Refresh whitespace, etc. in patches via pq import/export.
+  * debian/control:
+    - Bump Standards-Version to 4.4.1
+    - Drop misleading Vcs-{Git,Browser}.
+    - Use HTTPS Homepage URI.
+    - Specify Rules-Requires-Root: binary-targets.
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 20 Nov 2019 13:33:36 -0500
+
 cpio (2.12+dfsg-9pexip2) pexip; urgency=medium
 
   * Rebuild in buster environment

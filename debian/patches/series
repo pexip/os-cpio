@@ -1,3 +1,4 @@
+695717-no-cpio.info-2.patch
 fix.win32-compat.patch
 autoreconf.patch
 fix.better.handle.device.nodes.cramfs.565474.patch
@@ -8,8 +9,6 @@ fix.win32.out-pass.mode.579533.patch
 588020-manpages-see-also.patch
 695717-no-cpio.info.patch
 fix.win32.undef.stat.patch
-
-CVE-2015-1197.patch
-CVE-2016-2037.patch
-
 fix.mt-erase.manpage.patch
+revert-CVE-2015-1197-handling.patch
+963304-remove-superfluous-declaration-of-program_name
