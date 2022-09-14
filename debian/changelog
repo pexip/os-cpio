@@ -1,10 +1,3 @@
-cpio (2.13+dfsg-7.1~deb11u1) bullseye; urgency=medium
-
-  * Non-maintainer upload.
-  * Rebuild for bullseye.
-
- -- Adrian Bunk <bunk@debian.org>  Sat, 30 Sep 2023 15:18:55 +0300
-
 cpio (2.13+dfsg-7.1) unstable; urgency=medium
 
   * Non-maintainer upload.
