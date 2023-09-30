@@ -1,3 +1,42 @@
+cpio (2.13+dfsg-7.1~deb11u1) bullseye; urgency=medium
+
+  * Non-maintainer upload.
+  * Rebuild for bullseye.
+
+ -- Adrian Bunk <bunk@debian.org>  Sat, 30 Sep 2023 15:18:55 +0300
+
+cpio (2.13+dfsg-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Suggest libarchive-dev (Closes: #662718).
+  * d/copyright: Convert to machine-readable format.
+  * Fix CRC with new ASCII format when file > 2GB (Closes: #962188).
+
+ -- Bastian Germann <bage@debian.org>  Wed, 14 Sep 2022 21:45:55 +0200
+
+cpio (2.13+dfsg-7) unstable; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * Fix dynamic string reallocations (Closes: #992192)
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Sun, 22 Aug 2021 15:21:53 +1000
+
+cpio (2.13+dfsg-6) unstable; urgency=high
+
+  * Fix regression of original fix for CVE-2021-38185
+    Add patch 992098-regression-of-orig-fix-for-CVE-2021-38185 
+    Closes: #992098
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Fri, 13 Aug 2021 13:06:27 +1000
+
+cpio (2.13+dfsg-5) unstable; urgency=medium
+
+  * Fix CVE-2021-38185
+    Add patch 992045-CVE-2021-38185-rewrite-dynamic-string-support
+    Closes: #992045
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Wed, 11 Aug 2021 01:18:33 +1000
+
 cpio (2.13+dfsg-4) unstable; urgency=medium
 
   * Source only upload to enable migration.
