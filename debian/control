@@ -19,7 +19,7 @@ Depends: ${shlibs:Depends}
 Replaces: cpio-mt
 Conflicts: mt-st (<< 0.6), cpio-mt
 Multi-Arch: foreign
-Suggests: libarchive1
+Suggests: libarchive-dev
 Description: GNU cpio -- a program to manage archives of files
  GNU cpio is a tool for creating and extracting archives, or copying
  files from one place to another.  It handles a number of cpio formats
