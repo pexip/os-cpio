@@ -1,3 +1,9 @@
+cpio (2.13+dfsg-7.1pexip2) pexip-bookworm; urgency=medium
+
+  * Bookworm build for product distribution
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Sat, 09 Dec 2023 22:52:07 +0000
+
 cpio (2.13+dfsg-7.1pexip1) pexip-bookworm; urgency=medium
 
   * Rebuild for bookworm using current bookworm version.
